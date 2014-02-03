@@ -1,8 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "HuffmanNode.h"
-#include "HuffmanBinaryHeap.h"
-
+#include "FileDispatcher.h"
 using namespace std;
 
 const static int READ_MODE = ios::in | ios::binary;
@@ -11,9 +9,27 @@ const static int WRITE_MODE = ios::out | ios::binary;
 int* ReadFile(const char* fileName);
 void CreateHuffmanTree(int* charactersCount);
 
-void main()
-{
-	int* charactersCount = ReadFile("input.txt");
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// A small driver program that demonstrates the Huffman encoding API.
+int main(int argc, char* argv[]) {
+	string file = "C:\\Users\\Milen\\Desktop\\Sample";
+	vector<string> vec;
+	FileDispatcher::TraverseDirectoryRecursively(vec, file);
+
+	//string baseDirectory = argv[1];
+	//vector<string> filesAndDirectories;
+	//GetFilesAndDirectoriesRecursive(baseDirectory, filesAndDirectories);
+
+
+	//for (vector<string>::iterator it = filesAndDirectories.begin(); it != filesAndDirectories.end(); it++)
+	//{
+	//	// cout << *it << endl;
+	//}
+	//int* charactersCount = ReadFile("input.txt");
 
 	// Test Binary Heap
 	/*HuffmanBinaryHeap heap(5);
@@ -35,8 +51,6 @@ void main()
 		minNode->PrintNode();
 		heap.Print();
 	}*/
-
-
 }
 
 
