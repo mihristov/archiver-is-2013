@@ -18,7 +18,7 @@ public:
 	HuffmanEncoder(const std::map<char, int>& frequencies);
 	~HuffmanEncoder();
 
-	map<char, std::string> GetTable();
+	std::map<char, std::string> GetTable();
 };
 
 #endif
