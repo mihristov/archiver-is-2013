@@ -33,6 +33,12 @@
     <ClCompile Include="FileDispatcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FileReadStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileWriteStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HuffmanNode.h">
@@ -48,6 +54,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FileDispatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WriteStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileReadStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileWriteStream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

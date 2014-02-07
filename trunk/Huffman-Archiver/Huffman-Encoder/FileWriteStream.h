@@ -1,23 +1,23 @@
 #ifndef FILE_WRITE_STREAM_H
 #define FILE_WRITE_STREAM_H
 
-#include <fstream>
-#include <string>
-
 #define STREAM_BUFFER_SIZE 4096
+
+#include "WriteStream.h"
+#include <string>
+#include <fstream>
 
 using std::string;
 using std::ofstream;
 
-class FileWriteStream
-{
+class FileWriteStream : public WriteStream {
 public:
 	FileWriteStream(const string& filename);
-	~FileWriteStream();
-	bool WriteBit(char bit);
-	bool WriteByte(char byte);
-	bool WriteUnsignedInt32(unsigned int value);
-	bool Flush();
+	virtual ~FileWriteStream();
+	virtual bool WriteBit(char bit);
+	virtual bool WriteByte(char byte);
+	virtual bool WriteUnsignedInt32(unsigned int value);
+	virtual bool Flush();
 private:
 	string filename_;
 	char* buffer_;
