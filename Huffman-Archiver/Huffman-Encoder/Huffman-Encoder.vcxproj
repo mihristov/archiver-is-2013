@@ -80,6 +80,8 @@
   <ItemGroup>
     <ClCompile Include="BitWriter.cpp" />
     <ClCompile Include="FileDispatcher.cpp" />
+    <ClCompile Include="FileReadStream.cpp" />
+    <ClCompile Include="FileWriteStream.cpp" />
     <ClCompile Include="HuffmanBinaryHeap.cpp" />
     <ClCompile Include="HuffmanEncoder.cpp" />
     <ClCompile Include="HuffmanNode.cpp" />
@@ -88,9 +90,13 @@
   <ItemGroup>
     <ClInclude Include="BitWriter.h" />
     <ClInclude Include="FileDispatcher.h" />
+    <ClInclude Include="FileReadStream.h" />
+    <ClInclude Include="FileWriteStream.h" />
     <ClInclude Include="HuffmanBinaryHeap.h" />
     <ClInclude Include="HuffmanEncoder.h" />
     <ClInclude Include="HuffmanNode.h" />
+    <ClInclude Include="ReadStream.h" />
+    <ClInclude Include="WriteStream.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

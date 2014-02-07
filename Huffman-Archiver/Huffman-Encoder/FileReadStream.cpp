@@ -17,7 +17,7 @@ FileReadStream::~FileReadStream() {
 bool FileReadStream::ReadBit(char& bit) {
 	if (bit_index_ >= total_bits_) {
 		file_stream_.read(buffer_, STREAM_BUFFER_SIZE);
-		total_bits_ = (unsigned int) file_stream_.gcount() * 8;
+		total_bits_ = (unsigned int)file_stream_.gcount() * 8;
 		bit_index_ = 0;
 		if (total_bits_ == 0) {
 			return false;
@@ -50,7 +50,7 @@ bool FileReadStream::ReadUnsignedInt32(unsigned int& value) {
 		if (!ReadByte(byte)) {
 			return false;
 		}
-		value = (value << 8) | ((unsigned char) byte);
+		value = (value << 8) | ((unsigned char)byte);
 	}
 	return true;
 }

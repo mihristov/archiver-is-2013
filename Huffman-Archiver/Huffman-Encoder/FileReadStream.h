@@ -1,24 +1,25 @@
-#ifndef FILEREADER_H
-#define FILEREADER_H
-
-#include <fstream>
-#include <string>
+#ifndef FILE_READ_STREAM_H
+#define FILE_READ_STREAM_H
 
 #define STREAM_BUFFER_SIZE 4096
 
-using std::ifstream;
-using std::string;
+#include "ReadStream.h"
+#include "FileReadStream.h"
+#include <string>
+#include <fstream>
 
-class FileReadStream
-{
+using std::string;
+using std::ifstream;
+
+class FileReadStream : public ReadStream {
 public:
 	FileReadStream(const string& filename);
-	~FileReadStream();
-	bool ReadBit(char& bit);
-	bool ReadByte(char& byte);
-	bool ReadUnsignedInt32(unsigned int& value);
-	bool Reset();
-	unsigned int Bytes();
+	virtual ~FileReadStream();
+	virtual bool ReadBit(char& bit);
+	virtual bool ReadByte(char& byte);
+	virtual bool ReadUnsignedInt32(unsigned int& value);
+	virtual bool Reset();
+	virtual unsigned int Bytes();
 private:
 	string filename;
 	char* buffer_;
