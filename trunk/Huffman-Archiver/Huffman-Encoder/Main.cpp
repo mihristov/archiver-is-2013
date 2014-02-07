@@ -1,24 +1,25 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "FileDispatcher.h"
-using namespace std;
+#include "LZ77Encoder.h"
+#include "LZ78Encoder.h"
 
+using namespace std;
 const static int READ_MODE = ios::in | ios::binary;
 const static int WRITE_MODE = ios::out | ios::binary;
 
 int* ReadFile(const char* fileName);
 void CreateHuffmanTree(int* charactersCount);
 
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 // A small driver program that demonstrates the Huffman encoding API.
 int main(int argc, char* argv[]) {
 	string file = "C:\\Users\\Milen\\Desktop\\Sample";
 	vector<string> vec;
 	FileDispatcher::TraverseDirectoryRecursively(vec, file);
+
+	LZ77Encoder test;
+	test.EncodeFile();
 
 	//string baseDirectory = argv[1];
 	//vector<string> filesAndDirectories;

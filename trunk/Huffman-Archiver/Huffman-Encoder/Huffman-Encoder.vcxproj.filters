@@ -39,6 +39,12 @@
     <ClCompile Include="FileWriteStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LZ77Encoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LZ78Encoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HuffmanNode.h">
@@ -66,6 +72,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FileWriteStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileEncoder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LZ77Encoder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LZ78Encoder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
