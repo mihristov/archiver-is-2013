@@ -85,21 +85,21 @@
     <ClCompile Include="HuffmanBinaryHeap.cpp" />
     <ClCompile Include="HuffmanEncoder.cpp" />
     <ClCompile Include="HuffmanNode.cpp" />
-    <ClCompile Include="LZ77Encoder.cpp" />
-    <ClCompile Include="LZ78Encoder.cpp" />
+    <ClCompile Include="LZ77Compressor.cpp" />
+    <ClCompile Include="LZ78Compressor.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BitWriter.h" />
     <ClInclude Include="FileDispatcher.h" />
-    <ClInclude Include="FileEncoder.h" />
+    <ClInclude Include="FileCompressor.h" />
     <ClInclude Include="FileReadStream.h" />
     <ClInclude Include="FileWriteStream.h" />
     <ClInclude Include="HuffmanBinaryHeap.h" />
     <ClInclude Include="HuffmanEncoder.h" />
     <ClInclude Include="HuffmanNode.h" />
-    <ClInclude Include="LZ77Encoder.h" />
-    <ClInclude Include="LZ78Encoder.h" />
+    <ClInclude Include="LZ77Compressor.h" />
+    <ClInclude Include="LZ78Compressor.h" />
     <ClInclude Include="ReadStream.h" />
     <ClInclude Include="WriteStream.h" />
   </ItemGroup>
