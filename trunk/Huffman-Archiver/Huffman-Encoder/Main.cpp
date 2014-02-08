@@ -2,8 +2,6 @@
 #include <fstream>
 #include <string>
 #include "FileDispatcher.h"
-#include "LZ77Encoder.h"
-#include "LZ78Encoder.h"
 
 using namespace std;
 const static int READ_MODE = ios::in | ios::binary;
@@ -17,9 +15,6 @@ int main(int argc, char* argv[]) {
 	string file = "C:\\Users\\Milen\\Desktop\\Sample";
 	vector<string> vec;
 	FileDispatcher::TraverseDirectoryRecursively(vec, file);
-
-	LZ77Encoder test;
-	test.EncodeFile();
 
 	//string baseDirectory = argv[1];
 	//vector<string> filesAndDirectories;

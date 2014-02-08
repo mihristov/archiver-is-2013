@@ -39,10 +39,10 @@
     <ClCompile Include="FileWriteStream.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LZ77Encoder.cpp">
+    <ClCompile Include="LZ77Compressor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LZ78Encoder.cpp">
+    <ClCompile Include="LZ78Compressor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,13 +74,13 @@
     <ClInclude Include="FileWriteStream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FileEncoder.h">
+    <ClInclude Include="FileCompressor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LZ77Encoder.h">
+    <ClInclude Include="LZ77Compressor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LZ78Encoder.h">
+    <ClInclude Include="LZ78Compressor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
