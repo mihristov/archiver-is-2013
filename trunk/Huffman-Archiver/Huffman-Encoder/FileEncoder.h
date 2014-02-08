@@ -4,6 +4,7 @@
 class FileEncoder
 {
 public:
-	virtual void EncodeFile();
+	virtual void EncodeFile() = 0;
 };
+
 #endif
