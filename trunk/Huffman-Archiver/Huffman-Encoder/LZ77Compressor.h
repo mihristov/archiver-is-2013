@@ -6,7 +6,7 @@
 class LZ77Compressor : public FileCompressor
 {
 public:
-	virtual void CompressFile(ReadStream*, WriteStream*);
+	virtual void CompressFile();
 };
 
 #endif

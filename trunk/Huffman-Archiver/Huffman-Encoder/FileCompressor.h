@@ -7,7 +7,8 @@
 class FileCompressor
 {
 public:
-	virtual void CompressFile(ReadStream*, WriteStream*) = 0;
+	virtual ~FileCompressor() {};
+	virtual void CompressFile() = 0;
 };
 
 #endif

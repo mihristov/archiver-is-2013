@@ -45,6 +45,9 @@
     <ClCompile Include="LZ78Compressor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HuffmanCompressor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HuffmanNode.h">
@@ -81,6 +84,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LZ78Compressor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HuffmanCompressor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
