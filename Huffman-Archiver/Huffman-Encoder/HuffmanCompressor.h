@@ -14,6 +14,7 @@ public:
 	HuffmanCompressor(ReadStream*, WriteStream*);
 	virtual ~HuffmanCompressor();
 	virtual void CompressFile();
+	virtual void SetReadStream(ReadStream*);
 
 private:
 	std::map<char, unsigned int> GetByteFrequencies();

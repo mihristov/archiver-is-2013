@@ -48,3 +48,32 @@ void FileDispatcher::TraverseDirectoryRecursively(vector<string>& filepaths, str
 		}
 	}
 }
+
+string FileDispatcher::StripBasePath(const string& path, const string& base_path) {
+	if (base_path == path.substr(0, base_path.size())) {
+		string new_path = path.substr(base_path.size());
+		while (new_path.size() > 0 && (new_path[0] == '\\' || new_path[0] == '/')) {
+			new_path.erase(new_path.begin());
+		}
+		return new_path;
+	}
+	else {
+		return path;
+	}
+}
+
+string FileDispatcher::StripLastPathComponent(const string& path) {
+	string result = path;
+	int n = result.size();
+	// Remove trailing forward and backward slashes.
+	while (n > 0 && (result[n - 1] == '/' || result[n - 1] == '\\')) {
+		n--;
+		result.erase(result.begin() + n);
+	}
+	// Remove everything until a forward or backward slash.
+	while (n > 0 && result[n - 1] != '/' && result[n - 1] != '\\') {
+		n--;
+		result.erase(result.begin() + n);
+	}
+	return result;
+}

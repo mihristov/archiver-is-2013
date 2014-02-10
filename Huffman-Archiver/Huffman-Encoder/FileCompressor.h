@@ -9,6 +9,7 @@ class FileCompressor
 public:
 	virtual ~FileCompressor() {};
 	virtual void CompressFile() = 0;
+	virtual void SetReadStream(ReadStream*) = 0;
 };
 
 #endif
