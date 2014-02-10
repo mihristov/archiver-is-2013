@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include "FileDispatcher.h"
+#include <map>
 
 using namespace std;
 const static int READ_MODE = ios::in | ios::binary;
@@ -15,6 +16,12 @@ int main(int argc, char* argv[]) {
 	string file = "C:\\Users\\Milen\\Desktop\\Sample";
 	vector<string> vec;
 	FileDispatcher::TraverseDirectoryRecursively(vec, file);
+
+	std::map<char, unsigned int> freq;
+	for (std::map<char, unsigned int>::iterator it = freq.begin(); it != freq.end(); ++it)
+	{
+		std::cout << it->first << " : " << it->second << '\n';
+	}
 
 	//string baseDirectory = argv[1];
 	//vector<string> filesAndDirectories;

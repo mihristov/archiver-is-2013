@@ -83,6 +83,7 @@
     <ClCompile Include="FileReadStream.cpp" />
     <ClCompile Include="FileWriteStream.cpp" />
     <ClCompile Include="HuffmanBinaryHeap.cpp" />
+    <ClCompile Include="HuffmanCompressor.cpp" />
     <ClCompile Include="HuffmanEncoder.cpp" />
     <ClCompile Include="HuffmanNode.cpp" />
     <ClCompile Include="LZ77Compressor.cpp" />
@@ -96,6 +97,7 @@
     <ClInclude Include="FileReadStream.h" />
     <ClInclude Include="FileWriteStream.h" />
     <ClInclude Include="HuffmanBinaryHeap.h" />
+    <ClInclude Include="HuffmanCompressor.h" />
     <ClInclude Include="HuffmanEncoder.h" />
     <ClInclude Include="HuffmanNode.h" />
     <ClInclude Include="LZ77Compressor.h" />
