@@ -4,6 +4,12 @@
 #include <vector>
 #include <string>
 
+Serializator::Serializator(std::string input, WriteStream* output, FileCompressor* compressor)
+{
+	this->input_ = input_;
+	this->output_ = output;
+	this->compressor_ = compressor;
+}
 void Serializator::Serialize()
 {
 	/*

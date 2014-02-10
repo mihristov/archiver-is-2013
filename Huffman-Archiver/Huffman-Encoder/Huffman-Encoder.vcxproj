@@ -79,6 +79,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BitWriter.cpp" />
+    <ClCompile Include="Deserializator.cpp" />
     <ClCompile Include="FileDispatcher.cpp" />
     <ClCompile Include="FileReadStream.cpp" />
     <ClCompile Include="FileWriteStream.cpp" />
@@ -93,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BitWriter.h" />
+    <ClInclude Include="Deserializator.h" />
     <ClInclude Include="FileDispatcher.h" />
     <ClInclude Include="FileCompressor.h" />
     <ClInclude Include="FileReadStream.h" />
