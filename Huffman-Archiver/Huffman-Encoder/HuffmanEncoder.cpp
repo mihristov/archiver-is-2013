@@ -2,7 +2,7 @@
 
 using namespace std;
 
-HuffmanEncoder::HuffmanEncoder(const std::map<char, int>& frequencies)
+HuffmanEncoder::HuffmanEncoder(const std::map<char, unsigned int>& frequencies)
 {
 	this->frequencyTable = frequencies;
 	this->huffmanTree = new HuffmanBinaryHeap(this->frequencyTable.size());
@@ -10,7 +10,7 @@ HuffmanEncoder::HuffmanEncoder(const std::map<char, int>& frequencies)
 
 void HuffmanEncoder::BuildTree()
 {
-	for (map<char, int>::iterator it = this->frequencyTable.begin();
+	for (map<char, unsigned int>::iterator it = this->frequencyTable.begin();
 		it != this->frequencyTable.end(); ++it)
 	{
 		this->huffmanTree->Add(new HuffmanNode(it->second, it->first));
