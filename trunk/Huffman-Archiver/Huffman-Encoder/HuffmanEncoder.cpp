@@ -1,16 +1,19 @@
 #include "HuffmanEncoder.h"
 
-using namespace std;
-
 HuffmanEncoder::HuffmanEncoder(const std::map<char, unsigned int>& frequencies)
 {
 	this->frequencyTable = frequencies;
 	this->huffmanTree = new HuffmanBinaryHeap(this->frequencyTable.size());
 }
 
+HuffmanEncoder::~HuffmanEncoder()
+{
+	delete huffmanTree;
+}
+
 void HuffmanEncoder::BuildTree()
 {
-	for (map<char, unsigned int>::iterator it = this->frequencyTable.begin();
+	for (std::map<char, unsigned int>::iterator it = this->frequencyTable.begin();
 		it != this->frequencyTable.end(); ++it)
 	{
 		this->huffmanTree->Add(new HuffmanNode(it->second, it->first));
@@ -35,7 +38,7 @@ void HuffmanEncoder::BuildTable(HuffmanNode* root, std::string code)
 		if (root->GetLeftChild() == NULL)
 		{
 			root->SetCode(code);
-			huffmanTable.insert(pair<char, std::string>(root->GetLetter(), code));
+			huffmanTable.insert(std::pair<char, std::string>(root->GetLetter(), code));
 			return;
 		}
 		else
@@ -44,4 +47,9 @@ void HuffmanEncoder::BuildTable(HuffmanNode* root, std::string code)
 			BuildTable(root->GetRightChild(), code + "1");
 		}
 	}
+}
+
+std::map<char, std::string> HuffmanEncoder::GetTable()
+{
+	return this->huffmanTable;
 }

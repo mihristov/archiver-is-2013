@@ -103,6 +103,7 @@
     <ClInclude Include="LZ77Compressor.h" />
     <ClInclude Include="LZ78Compressor.h" />
     <ClInclude Include="ReadStream.h" />
+    <ClInclude Include="Serializator.h" />
     <ClInclude Include="WriteStream.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
