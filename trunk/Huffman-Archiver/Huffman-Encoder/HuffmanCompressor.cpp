@@ -71,3 +71,9 @@ void HuffmanCompressor::CompressFile()
 	output_->Flush();
 	delete huffmanEncoder;
 }
+
+void HuffmanCompressor::SetReadStream(ReadStream* input)
+{
+	delete input_;
+	input_ = input;
+}

@@ -89,6 +89,7 @@
     <ClCompile Include="LZ77Compressor.cpp" />
     <ClCompile Include="LZ78Compressor.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Serializator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BitWriter.h" />

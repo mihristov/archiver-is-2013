@@ -4,16 +4,18 @@
 #include "ReadStream.h"
 #include "WriteStream.h"
 #include "FileCompressor.h"
+#include <string>
 
 class Serializator
 {
 private:
-	ReadStream* input_;
+	//ReadStream* input_;
+	std::string input_;
 	WriteStream* output_;
 	FileCompressor* compressor_;
 
 public:
-	Serializator(ReadStream* input, WriteStream* output, FileCompressor* compressor);
+	Serializator(std::string, WriteStream* output, FileCompressor* compressor);
 	~Serializator();
 	void Serialize();
 };

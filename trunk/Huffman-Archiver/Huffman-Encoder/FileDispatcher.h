@@ -16,6 +16,8 @@ public:
 	bool static IsFile(string& file);
 	vector<string> static TraverseDirectory(string& const basepath);
 	void static TraverseDirectoryRecursively(vector<string>& filepaths, string& const basepath);
+	string static StripBasePath(const string& path, const string& base_path);
+	string static StripLastPathComponent(const string& path);
 
 private:
 
