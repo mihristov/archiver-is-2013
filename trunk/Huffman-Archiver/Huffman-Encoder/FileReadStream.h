@@ -4,7 +4,6 @@
 #define STREAM_BUFFER_SIZE 4096
 
 #include "ReadStream.h"
-#include "FileReadStream.h"
 #include <string>
 #include <fstream>
 

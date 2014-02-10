@@ -39,7 +39,7 @@ HuffmanNode* HuffmanBinaryHeap::GetMin()
 	{
 		return this->data[0];
 	}
-}
+ }
 
 int HuffmanBinaryHeap::NumberOfChildren(int currentIndex)
 {
