@@ -9,13 +9,13 @@ class HuffmanEncoder
 private:
 	HuffmanBinaryHeap* huffmanTree;
 	std::map<char, std::string> huffmanTable;
-	std::map<char, int> frequencyTable;
+	std::map<char, unsigned int> frequencyTable;
 
 	void BuildTree();
 	void BuildTable(HuffmanNode* root, std::string code);
 
 public:
-	HuffmanEncoder(const std::map<char, int>& frequencies);
+	HuffmanEncoder(const std::map<char, unsigned int>& frequencies);
 	~HuffmanEncoder();
 
 	std::map<char, std::string> GetTable();

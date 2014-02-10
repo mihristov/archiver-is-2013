@@ -36,4 +36,5 @@ std::map<char, unsigned int> HuffmanCompressor::GetByteFrequencies()
 void HuffmanCompressor::CompressFile()
 {
 	std::map<char, unsigned int> frequencies = GetByteFrequencies();
+	HuffmanEncoder* huffmanEncoder = new HuffmanEncoder(frequencies);
 }
