@@ -1,5 +1,5 @@
 #ifndef READ_STREAM_H
-#define READ_STERAM_H
+#define READ_STREAM_H
 
 class ReadStream
 {
