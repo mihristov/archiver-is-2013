@@ -6,9 +6,15 @@
 
 Serializator::Serializator(std::string input, WriteStream* output, FileCompressor* compressor)
 {
-	this->input_ = input_;
+	this->input_ = input;
 	this->output_ = output;
 	this->compressor_ = compressor;
+}
+
+Serializator::~Serializator()
+{
+	delete output_;
+	delete compressor_;
 }
 void Serializator::Serialize()
 {
@@ -61,7 +67,7 @@ void Serializator::Serialize()
 	{
 		std::string fileName(*it);
 		std::string fullPath = FileDispatcher::StripLastPathComponent(input_) + "\\" + fileName;
-		FileReadStream input(fullPath);
+		FileReadStream* input = new FileReadStream(fullPath);
 
 		// Write file name length
 		unsigned int fileNameLength = (*it).size();
@@ -73,7 +79,7 @@ void Serializator::Serialize()
 			output_->WriteByte(fileName[i]);
 		}
 
-		compressor_->SetReadStream(&input);
+		compressor_->SetReadStream(input);
 		compressor_->CompressFile();
 	}
 }
