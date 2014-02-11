@@ -4,7 +4,7 @@
 #include "FileCompressor.h"
 #include <map>
 
-class HuffmanCompressor : FileCompressor
+class HuffmanCompressor : public FileCompressor
 {
 private:
 	ReadStream* input_;
