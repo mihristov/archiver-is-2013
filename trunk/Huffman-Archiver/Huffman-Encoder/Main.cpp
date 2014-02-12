@@ -24,18 +24,21 @@ int main(int argc, char* argv[]) {
 	//vector<string> filesAndDirectories;
 	//GetFilesAndDirectoriesRecursive(baseDirectory, filesAndDirectories);
 
-	std::string input = "C:\\Users\\Milen\\Desktop\\Sample";
+	std::string inputMilen = "C:\\Users\\Milen\\Desktop\\Sample";
+	std::string outputMilen = "C:\\Users\\Milen\\Desktop\\Archive\\Petyo.txt";
+	std::string inputStefan = "C:\\Users\\Stefan\\Desktop\\Sample";
+	std::string outputStefan = "C:\\Users\\Stefan\\Desktop\\Archive\\Petyo.txt";
 	//TODO: Fix slashes at the end.
-	ReadStream* read = new FileReadStream("C:\\Users\\Milen\\Desktop\\Sample");
-	WriteStream* write = new FileWriteStream("C:\\Users\\Milen\\Desktop\\Archive\\Petyo.txt");
+	ReadStream* read = new FileReadStream(inputStefan);
+	WriteStream* write = new FileWriteStream(outputStefan);
 	HuffmanCompressor* compressor = new HuffmanCompressor(read, write);
 
-	Serializator serialization(input, write, compressor);
+	Serializator serialization(inputStefan, write, compressor);
 	serialization.Serialize();
 
-	input = "C:\\Users\\Milen\\Desktop\\SampleOutput";
+	/*input = "C:\\Users\\Milen\\Desktop\\SampleOutput";
 	
 	ReadStream* read1 = new FileReadStream("C:\\Users\\Milen\\Desktop\\Archive\\Petyo.txt");
 	Deserializator deserialization(input, read1);
-	deserialization.Deserialize();
+	deserialization.Deserialize();*/
 }

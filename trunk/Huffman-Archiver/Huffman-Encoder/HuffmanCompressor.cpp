@@ -34,6 +34,9 @@ void HuffmanCompressor::CompressFile()
 	std::map<char, unsigned int> frequencies = GetByteFrequencies();
 	HuffmanEncoder* huffmanEncoder = new HuffmanEncoder(frequencies);
 	huffmanEncoder->BuildTree();
+	HuffmanNode* huffmanTree = huffmanEncoder->GetTree();
+	std::string code = "";
+	huffmanEncoder->BuildTable(huffmanTree, code);
 	std::map<char, std::string> encodedBytes = huffmanEncoder->GetTable();
 
 	// Write the number of bytes that occur

@@ -66,7 +66,7 @@ void Serializator::Serialize()
 		it != files.end(); ++it)
 	{
 		std::string fileName(*it);
-		std::string fullPath = FileDispatcher::StripLastPathComponent(input_) + "\\" + fileName;
+		std::string fullPath = FileDispatcher::StripLastPathComponent(input_) + fileName;
 		FileReadStream* input = new FileReadStream(fullPath);
 
 		// Write file name length

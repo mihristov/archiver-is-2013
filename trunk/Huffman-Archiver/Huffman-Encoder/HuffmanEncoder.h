@@ -11,13 +11,13 @@ private:
 	std::map<char, std::string> huffmanTable;
 	std::map<char, unsigned int> frequencyTable;
 
-	void BuildTable(HuffmanNode* root, std::string code);
-
 public:
 	HuffmanEncoder(const std::map<char, unsigned int>& frequencies);
 	~HuffmanEncoder();
 	
 	void BuildTree();
+	void BuildTable(HuffmanNode* root, std::string code);
+	HuffmanNode* GetTree();
 	std::map<char, std::string> GetTable();
 };
 
