@@ -19,6 +19,14 @@ void HuffmanEncoder::BuildTree()
 		this->huffmanTree->Add(new HuffmanNode(it->second, it->first));
 	}
 
+	// Fixes bug if file consists of only one byte
+	// or one byte repeated many times
+	if (this->huffmanTree->GetSize() == 1)
+	{
+		huffmanTable.insert(std::pair<char, std::string>(huffmanTree->GetMin()->GetLetter(), "0"));
+		return;
+	}
+
 	while (!huffmanTree->IsEmpty())
 	{
 		if (huffmanTree->GetSize() == 1) break;
@@ -27,8 +35,8 @@ void HuffmanEncoder::BuildTree()
 		huffmanTree->Add(new HuffmanNode(first, second));
 	}
 
-	std::string code = "";
-	BuildTable(huffmanTree->GetMin(), code);
+	// std::string code = "";
+	// BuildTable(huffmanTree->GetMin(), code);
 }
 
 void HuffmanEncoder::BuildTable(HuffmanNode* root, std::string code)
@@ -45,6 +53,11 @@ void HuffmanEncoder::BuildTable(HuffmanNode* root, std::string code)
 			BuildTable(root->GetLeftChild(), code + "0");
 			BuildTable(root->GetRightChild(), code + "1");
 		}
+}
+
+HuffmanNode* HuffmanEncoder::GetTree()
+{
+	return this->huffmanTree->GetMin();
 }
 
 std::map<char, std::string> HuffmanEncoder::GetTable()
