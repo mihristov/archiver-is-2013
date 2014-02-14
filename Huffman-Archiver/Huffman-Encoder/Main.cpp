@@ -8,6 +8,7 @@
 #include "FileWriteStream.h"
 #include "Serializator.h"
 #include "Deserializator.h"
+#include "HuffmanDecompressor.h"
 #include <map>
 
 using namespace std;
@@ -29,16 +30,14 @@ int main(int argc, char* argv[]) {
 	std::string inputStefan = "C:\\Users\\Stefan\\Desktop\\Sample";
 	std::string outputStefan = "C:\\Users\\Stefan\\Desktop\\Archive\\Petyo.txt";
 	//TODO: Fix slashes at the end.
-	ReadStream* read = new FileReadStream(inputStefan);
-	WriteStream* write = new FileWriteStream(outputStefan);
+	ReadStream* read = new FileReadStream(inputMilen);
+	WriteStream* write = new FileWriteStream(outputMilen);
 	HuffmanCompressor* compressor = new HuffmanCompressor(read, write);
 
-	Serializator serialization(inputStefan, write, compressor);
+	std::string sampleOutput = "C:\\Users\\Milen\\Desktop\\SampleOutput";
+	Serializator serialization(inputMilen, write, compressor);
 	serialization.Serialize();
 
-	/*input = "C:\\Users\\Milen\\Desktop\\SampleOutput";
-	
-	ReadStream* read1 = new FileReadStream("C:\\Users\\Milen\\Desktop\\Archive\\Petyo.txt");
-	Deserializator deserialization(input, read1);
-	deserialization.Deserialize();*/
+	Deserializator deserialization(outputMilen, sampleOutput);
+	deserialization.Deserialize();
 }
