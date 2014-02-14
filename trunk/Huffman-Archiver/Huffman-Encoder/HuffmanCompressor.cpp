@@ -9,6 +9,7 @@ HuffmanCompressor::HuffmanCompressor(ReadStream* input, WriteStream* output)
 
 HuffmanCompressor::~HuffmanCompressor()
 {
+
 }
 
 std::map<char, unsigned int> HuffmanCompressor::GetByteFrequencies()

@@ -1,23 +1,52 @@
 #include "HuffmanDecompressor.h"
 #include "HuffmanEncoder.h"
+
 using std::map;
+
+HuffmanDecompressor::HuffmanDecompressor(ReadStream* read, WriteStream* write)
+{ 
+	this->input_ = read;
+	this->output_ = write;
+}
 void HuffmanDecompressor::DecompressFile()
 {
-	map<char, unsigned int> frequencies;
-	
 	//Decode frequency table
+	std::map<char, unsigned int> frequencies;
 	unsigned int elements;
-	input_->ReadUnsignedInt32(elements);
+	this->input_->ReadUnsignedInt32(elements);
 	for (int i = 0; i < elements; i++) {
 		char byte;
-		input_->ReadByte(byte);
+		this->input_->ReadByte(byte);
 		unsigned int freq;
-		input_->ReadUnsignedInt32(freq);
+		this->input_->ReadUnsignedInt32(freq);
 		frequencies[byte] = freq;
 	}
 
-	HuffmanEncoder* huffmanEncoder = new HuffmanEncoder(frequencies);
-	huffmanEncoder->BuildTree();
+
+	HuffmanEncoder huffmanEncoder(frequencies);
+	huffmanEncoder.BuildTree();
+	std::string code = "";
+	HuffmanNode* huffmanTree = huffmanEncoder.GetTree();
+	huffmanEncoder.BuildTable(huffmanTree, code);
+
+	std::map<char, std::string> table = huffmanEncoder.GetTable();
+	//Writes file size in bytes
+	unsigned int bytes;
+	this->input_->ReadUnsignedInt32(bytes);
+
+	//Decode data
+	while (bytes > 0) {
+		HuffmanNode* node = huffmanTree;
+		while (node->GetLeftChild() != NULL &&
+			node->GetRightChild() != NULL)
+		{
+			char bit;
+			this->input_->ReadBit(bit);
+			node = (bit == 0) ? node->GetLeftChild() : node->GetRightChild();
+		}
+		this->output_->WriteByte(node->GetLetter());
+		bytes--;
+	}
 
 	
 

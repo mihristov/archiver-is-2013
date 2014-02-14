@@ -5,16 +5,15 @@
 #include "WriteStream.h"
 #include "FileDecompressor.h"
 
-class HuffmanDecompressor
+class HuffmanDecompressor : public FileDecompressor
 {
-private:
 private:
 	ReadStream* input_;
 	WriteStream* output_;
 public:
+	HuffmanDecompressor(ReadStream*, WriteStream*);
 	virtual ~HuffmanDecompressor() {};
-	virtual void DecompressFile() = 0;
-	virtual void SetWriteStream(WriteStream*) = 0;
+	virtual void DecompressFile();
 };
 
 #endif

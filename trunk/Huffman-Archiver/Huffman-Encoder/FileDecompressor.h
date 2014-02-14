@@ -9,7 +9,6 @@ class FileDecompressor
 public:
 	virtual ~FileDecompressor() {};
 	virtual void DecompressFile() = 0;
-	virtual void SetWriteStream(WriteStream*) = 0;
 };
 
 #endif
