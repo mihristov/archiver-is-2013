@@ -31,14 +31,14 @@ int main(int argc, char* argv[]) {
 	std::string inputStefan = "C:\\Users\\Stefan\\Desktop\\Sample";
 	std::string outputStefan = "C:\\Users\\Stefan\\Desktop\\Archive\\Petyo.txt";
 	//TODO: Fix slashes at the end.
-	ReadStream* read = new FileReadStream(inputMilen);
-	WriteStream* write = new FileWriteStream(outputMilen);
+	ReadStream* read = new FileReadStream(inputStefan);
+	WriteStream* write = new FileWriteStream(outputStefan);
 	HuffmanCompressor* compressor = new HuffmanCompressor(read, write);
 
-	std::string sampleOutput = "C:\\Users\\Milen\\Desktop\\SampleOutput";
-	Serializator serialization(inputMilen, write, compressor);
+	std::string sampleOutput = "C:\\Users\\Stefan\\Desktop\\SampleOutput";
+	Serializator serialization(inputStefan, write, compressor);
 	serialization.Serialize();
 
-	Deserializator deserialization(outputMilen, sampleOutput);
+	Deserializator deserialization(outputStefan, sampleOutput);
 	deserialization.Deserialize();
 }

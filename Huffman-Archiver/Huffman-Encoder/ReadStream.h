@@ -10,6 +10,7 @@ public:
 	virtual bool ReadUnsignedInt32(unsigned int& value) = 0;
 	virtual bool Reset() = 0;
 	virtual unsigned int Bytes() = 0;
+	virtual void RoundBitIndex() = 0;
 };
 
 #endif

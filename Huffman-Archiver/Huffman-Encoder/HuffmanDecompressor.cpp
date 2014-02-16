@@ -37,7 +37,7 @@ void HuffmanDecompressor::DecompressFile()
 
 	//Decode data
 	while (bytes > 0) 
-{
+	{
 		HuffmanNode* node = huffmanTree;
 		while (node->GetLeftChild() != NULL &&
 			node->GetRightChild() != NULL)
@@ -49,7 +49,5 @@ void HuffmanDecompressor::DecompressFile()
 		this->output_->WriteByte(node->GetLetter());
 		bytes--;
 	}
-
-	
-
+	input_->RoundBitIndex();
 }
