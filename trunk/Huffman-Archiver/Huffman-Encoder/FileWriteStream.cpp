@@ -47,5 +47,8 @@ bool FileWriteStream::Flush() {
 	unsigned int bytes = (bit_index_ + 7) / 8;
 	file_stream_.write(buffer_, bytes);
 	file_stream_.flush();
+	bit_index_ = 0;
+	delete [] buffer_;
+	buffer_ = new char[STREAM_BUFFER_SIZE];
 	return true;
 }

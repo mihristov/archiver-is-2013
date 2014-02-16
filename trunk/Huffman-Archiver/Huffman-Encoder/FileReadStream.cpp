@@ -76,3 +76,11 @@ unsigned int FileReadStream::Bytes() {
 	}
 	return bytes;
 }
+
+void FileReadStream::RoundBitIndex()
+{
+	while (bit_index_ % 8 != 0)
+	{
+		bit_index_++;
+	}
+}

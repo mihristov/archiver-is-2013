@@ -19,6 +19,7 @@ public:
 	virtual bool ReadUnsignedInt32(unsigned int& value);
 	virtual bool Reset();
 	virtual unsigned int Bytes();
+	virtual void RoundBitIndex();
 private:
 	string filename;
 	char* buffer_;
