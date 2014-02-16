@@ -41,7 +41,6 @@ void HuffmanEncoder::BuildTree()
 
 void HuffmanEncoder::BuildTable(HuffmanNode* root, std::string code)
 {
-	
 		if (root->GetLeftChild() == NULL)
 		{
 			root->SetCode(code);
@@ -50,8 +49,8 @@ void HuffmanEncoder::BuildTable(HuffmanNode* root, std::string code)
 		}
 		else
 		{
-			BuildTable(root->GetLeftChild(), code + "0");
-			BuildTable(root->GetRightChild(), code + "1");
+			BuildTable(root->GetLeftChild(), code + std::string(1, (char)0));
+			BuildTable(root->GetRightChild(), code + std::string(1, (char)1));
 		}
 }
 

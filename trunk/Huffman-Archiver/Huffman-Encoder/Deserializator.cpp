@@ -23,8 +23,10 @@ Deserializator::~Deserializator()
 bool Deserializator::DeserializeDirectory()
 {
 	unsigned int length;
+	//Read the length of directory name
 	if (!inputStream_->ReadUnsignedInt32(length)) return false;
 	string directory_name;
+	//Read the directory name
 	for (int i = 0; i < (int)length; i++) {
 		char byte;
 		if (!inputStream_->ReadByte(byte)) return false;
@@ -38,8 +40,8 @@ bool Deserializator::DeserializeDirectory()
 }
 
 bool Deserializator::DeserializeFile() {
-	//Read file length
 	unsigned int length;
+	//Read file length
 	if (!inputStream_->ReadUnsignedInt32(length)) return false;
 	string filename;
 	//Read file name
@@ -50,24 +52,14 @@ bool Deserializator::DeserializeFile() {
 	}
 	filename = output_ + "\\" + filename;
 
-
-	unsigned int bytes;
-
-	//if (!inputStream_->ReadUnsignedInt32(bytes)) return false;
 	WriteStream* write_stream = new FileWriteStream (filename);
-
-	/*while (bytes > 0) {
-		char byte;
-		if (!inputStream_->ReadByte(byte)) return false;
-		if (!write_stream->WriteByte(byte)) return false;
-		bytes--;
-	}*/
 
 	FileDecompressor* decompress = new HuffmanDecompressor(inputStream_, write_stream);
 	decompress->DecompressFile();
 
 	write_stream->Flush();
 	delete write_stream;
+	delete decompress;
 	return true;
 }
 
@@ -82,9 +74,12 @@ bool Deserializator::DeserializeDirectories() {
 	// Create an empty target base directory.
 	command = "mkdir \"" + output_ + "\"";
 	system(command.c_str());
-
+	
 	unsigned int n;
+	//Read the number of directories
 	if (!inputStream_->ReadUnsignedInt32(n)) return false;
+
+	//Read each directory
 	for (int i = 0; i < (int)n; i++) {
 		if (!DeserializeDirectory()) return false;
 	}
@@ -93,7 +88,9 @@ bool Deserializator::DeserializeDirectories() {
 
 bool Deserializator::DeserializeFiles() {
 	unsigned int n;
+	//Read the number of files
 	if (!inputStream_->ReadUnsignedInt32(n)) return false;
+	//Read each file name
 	for (int i = 0; i < (int)n; i++) 
 	{
 		if (!DeserializeFile()) return false;		

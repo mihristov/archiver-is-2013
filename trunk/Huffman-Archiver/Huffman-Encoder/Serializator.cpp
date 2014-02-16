@@ -46,6 +46,7 @@ void Serializator::Serialize()
 	// Write folders tree
 	unsigned int numberOfFolders = folders.size();
 	output_->WriteUnsignedInt32(numberOfFolders);
+
 	for (int i = 0; i < numberOfFolders; i++)
 	{
 		unsigned int folderNameLength = folders[i].size();
@@ -62,6 +63,7 @@ void Serializator::Serialize()
 	// Write files
 	unsigned int numberOfFiles = files.size();
 	output_->WriteUnsignedInt32(numberOfFiles);
+
 	for (std::vector<std::string>::iterator it = files.begin();
 		it != files.end(); ++it)
 	{
