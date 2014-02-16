@@ -19,6 +19,7 @@ int* ReadFile(const char* fileName);
 void CreateHuffmanTree(int* charactersCount);
 
 // A small driver program that demonstrates the Huffman encoding API.
+
 int main(int argc, char* argv[]) {
 	
 	//string baseDirectory = argv[1];
