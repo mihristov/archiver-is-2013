@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 	// Verification for correct given absolute or relative directory to the program
 	std::string err_message = "Please enter a valid directory!";
 
-	if (argc != 3)
+	if (argc != 4)
 	{
 		std::cerr << err_message << std::endl;
 		return 1;
@@ -33,7 +33,9 @@ int main(int argc, char* argv[]) {
 	if (firstParam == "compress")
 	{
 		ReadStream* read = new FileReadStream(argv[2]);
-		WriteStream* write = new FileWriteStream(argv[3]);
+		std::string archiveName = argv[3];
+		archiveName += "_arch";
+		WriteStream* write = new FileWriteStream(archiveName);
 		HuffmanCompressor* compressor = new HuffmanCompressor(read, write);
 		Serializator serialization(argv[2], write, compressor);
 		serialization.Serialize();
@@ -44,20 +46,4 @@ int main(int argc, char* argv[]) {
 		deserialization.Deserialize();
 	}
 
-
-	//std::string inputMilen = "C:\\Users\\Milen\\Desktop\\Sample";
-	//std::string outputMilen = "C:\\Users\\Milen\\Desktop\\Archive\\Petyo.txt";
-	//std::string inputStefan = "C:\\Users\\Stefan\\Desktop\\Sample";
-	//std::string outputStefan = "C:\\Users\\Stefan\\Desktop\\Archive\\Petyo.txt";
-	////TODO: Fix slashes at the end.
-	//ReadStream* read = new FileReadStream(inputMilen);
-	//WriteStream* write = new FileWriteStream(outputMilen);
-	//HuffmanCompressor* compressor = new HuffmanCompressor(read, write);
-	//	
-	//std::string sampleOutput = "C:\\Users\\Milen\\Desktop\\SampleOutput";
-	//Serializator serialization(inputMilen, write, compressor);
-	//serialization.Serialize();
-
-	//Deserializator deserialization(outputMilen, sampleOutput);
-	//deserialization.Deserialize();
 }

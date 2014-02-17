@@ -15,6 +15,12 @@ void HuffmanDecompressor::DecompressFile()
 	unsigned int elements;
 	//Read the number of unique bytes in the file
 	this->input_->ReadUnsignedInt32(elements);
+
+	if (elements == 0)
+	{
+		return;
+	}
+
 	//Read each byte and how many times it occur
 	for (int i = 0; i < elements; i++) {
 		char byte;
@@ -23,14 +29,12 @@ void HuffmanDecompressor::DecompressFile()
 		this->input_->ReadUnsignedInt32(freq);
 		frequencies[byte] = freq;
 	}
-
+	
 	HuffmanEncoder huffmanEncoder(frequencies);
 	huffmanEncoder.BuildTree();
 	std::string code = "";
 	HuffmanNode* huffmanTree = huffmanEncoder.GetTree();
-	huffmanEncoder.BuildTable(huffmanTree, code);
 
-	std::map<char, std::string> table = huffmanEncoder.GetTable();
 	//Writes file size in bytes
 	unsigned int bytes;
 	this->input_->ReadUnsignedInt32(bytes);
