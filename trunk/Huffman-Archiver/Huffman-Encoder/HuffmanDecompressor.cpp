@@ -39,6 +39,12 @@ void HuffmanDecompressor::DecompressFile()
 	while (bytes > 0) 
 	{
 		HuffmanNode* node = huffmanTree;
+
+		if (!node->GetLeftChild() && !node->GetRightChild())
+		{
+			char bit;
+			this->input_->ReadBit(bit);
+		}
 		while (node->GetLeftChild() != NULL &&
 			node->GetRightChild() != NULL)
 		{

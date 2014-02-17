@@ -27,9 +27,6 @@
     <ClCompile Include="HuffmanEncoder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BitWriter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FileDispatcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -66,9 +63,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="HuffmanEncoder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BitWriter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FileDispatcher.h">

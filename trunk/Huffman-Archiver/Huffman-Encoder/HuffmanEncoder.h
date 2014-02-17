@@ -3,7 +3,9 @@
 #include <map>
 #include <string>
 #include "HuffmanBinaryHeap.h"
-
+/** A class that uses the binary heap to build a Huffman tree and Huffman table.
+* It stores the frequency table.
+*/
 class HuffmanEncoder
 {
 private:

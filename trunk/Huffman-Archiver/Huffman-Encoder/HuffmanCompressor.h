@@ -3,7 +3,9 @@
 
 #include "FileCompressor.h"
 #include <map>
-
+/**
+* An instance of FileCompressor. Uses huffman encoding to encode a file.
+*/
 class HuffmanCompressor : public FileCompressor
 {
 private:

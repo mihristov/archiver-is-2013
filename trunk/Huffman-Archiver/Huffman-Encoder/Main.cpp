@@ -1,4 +1,5 @@
-#include <iostream>
+// A small driver program that demonstrates the Huffman encoding API.#include <iostream>
+
 #include <fstream>
 #include <string>
 #include "FileDispatcher.h"
@@ -11,34 +12,52 @@
 #include "HuffmanDecompressor.h"
 #include <map>
 
-using namespace std;
-const static int READ_MODE = ios::in | ios::binary;
-const static int WRITE_MODE = ios::out | ios::binary;
-
-int* ReadFile(const char* fileName);
-void CreateHuffmanTree(int* charactersCount);
-
-// A small driver program that demonstrates the Huffman encoding API.
-
 int main(int argc, char* argv[]) {
 	
-	//string baseDirectory = argv[1];
-	//vector<string> filesAndDirectories;
-	//GetFilesAndDirectoriesRecursive(baseDirectory, filesAndDirectories);
+	// Verification for correct given absolute or relative directory to the program
+	std::string err_message = "Please enter a valid directory!";
 
-	std::string inputMilen = "C:\\Users\\Milen\\Desktop\\Sample";
-	std::string outputMilen = "C:\\Users\\Milen\\Desktop\\Archive\\Petyo.txt";
-	std::string inputStefan = "C:\\Users\\Stefan\\Desktop\\Sample";
-	std::string outputStefan = "C:\\Users\\Stefan\\Desktop\\Archive\\Petyo.txt";
-	//TODO: Fix slashes at the end.
-	ReadStream* read = new FileReadStream(inputStefan);
-	WriteStream* write = new FileWriteStream(outputStefan);
-	HuffmanCompressor* compressor = new HuffmanCompressor(read, write);
+	if (argc != 3)
+	{
+		std::cerr << err_message << std::endl;
+		return 1;
+	}
 
-	std::string sampleOutput = "C:\\Users\\Stefan\\Desktop\\SampleOutput";
-	Serializator serialization(inputStefan, write, compressor);
-	serialization.Serialize();
+	if (!FileDispatcher::IsValid(argv[2]) && !FileDispatcher::IsValid(argv[3]))
+	{
+		std::cerr << err_message << std::endl;
+		return 1;
+	}
 
-	Deserializator deserialization(outputStefan, sampleOutput);
-	deserialization.Deserialize();
+	std::string firstParam = argv[1];
+	if (firstParam == "compress")
+	{
+		ReadStream* read = new FileReadStream(argv[2]);
+		WriteStream* write = new FileWriteStream(argv[3]);
+		HuffmanCompressor* compressor = new HuffmanCompressor(read, write);
+		Serializator serialization(argv[2], write, compressor);
+		serialization.Serialize();
+	}
+	else if (firstParam == "decompress")
+	{
+		Deserializator deserialization(argv[2], argv[3]);
+		deserialization.Deserialize();
+	}
+
+
+	//std::string inputMilen = "C:\\Users\\Milen\\Desktop\\Sample";
+	//std::string outputMilen = "C:\\Users\\Milen\\Desktop\\Archive\\Petyo.txt";
+	//std::string inputStefan = "C:\\Users\\Stefan\\Desktop\\Sample";
+	//std::string outputStefan = "C:\\Users\\Stefan\\Desktop\\Archive\\Petyo.txt";
+	////TODO: Fix slashes at the end.
+	//ReadStream* read = new FileReadStream(inputMilen);
+	//WriteStream* write = new FileWriteStream(outputMilen);
+	//HuffmanCompressor* compressor = new HuffmanCompressor(read, write);
+	//	
+	//std::string sampleOutput = "C:\\Users\\Milen\\Desktop\\SampleOutput";
+	//Serializator serialization(inputMilen, write, compressor);
+	//serialization.Serialize();
+
+	//Deserializator deserialization(outputMilen, sampleOutput);
+	//deserialization.Deserialize();
 }

@@ -4,7 +4,9 @@
 #include "ReadStream.h"
 #include "WriteStream.h"
 #include "FileDecompressor.h"
-
+/**
+* An instance of FileDecompressor. Uses huffman encoding to decode a file.
+*/
 class HuffmanDecompressor : public FileDecompressor
 {
 private:

@@ -1,3 +1,4 @@
+// Derived class for LZ78 encoding
 #ifndef LZ78_COMPRESSOR_H
 #define LZ78_COMPRESSOR_H
 
