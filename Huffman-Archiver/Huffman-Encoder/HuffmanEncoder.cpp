@@ -23,7 +23,7 @@ void HuffmanEncoder::BuildTree()
 	// or one byte repeated many times
 	if (this->huffmanTree->GetSize() == 1)
 	{
-		huffmanTable.insert(std::pair<char, std::string>(huffmanTree->GetMin()->GetLetter(), "0"));
+		huffmanTable.insert(std::pair<char, std::string>(huffmanTree->GetMin()->GetLetter(), std::string(1, (char)0)));
 		return;
 	}
 

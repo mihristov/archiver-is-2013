@@ -1,3 +1,4 @@
+// Derived class of ReadStream
 #ifndef FILE_READ_STREAM_H
 #define FILE_READ_STREAM_H
 
@@ -9,7 +10,10 @@
 
 using std::string;
 using std::ifstream;
-
+/**
+* A concrete ReadStream that reads binary data stored in a file.
+* Reading data from the file is optimized by buffering.
+*/
 class FileReadStream : public ReadStream {
 public:
 	FileReadStream(const string& filename);

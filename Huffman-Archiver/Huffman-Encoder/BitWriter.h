@@ -9,18 +9,24 @@ using std::string;
 
 class BitWriter
 {
+public:
+	/** Constructor, initializes output ofstream with given file name
+	*/
+	BitWriter(const string fileName);
+	/** Empty Destuctor
+	*/
+	~BitWriter();
+	/** 
+	*/
+	void WriteBit(unsigned char bit);
+	void Flush();
+
 private:
 	const int MAX_SIZE = 8;
 	int size;
 	unsigned char buffer;
 	string fileName;
 	ofstream output;
-
-public:
-	BitWriter(const string fileName);
-	~BitWriter();
-	void WriteBit(unsigned char bit);
-	void Flush();
 };
 
 #endif

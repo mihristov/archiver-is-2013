@@ -12,6 +12,12 @@ bool FileDispatcher::IsFile(const string& file)
 	return !(attribute & FILE_ATTRIBUTE_DIRECTORY);
 }
 
+bool FileDispatcher::IsValid(const string& file)
+{
+	DWORD attributes = GetFileAttributesA(file.c_str());
+	return attributes != INVALID_FILE_ATTRIBUTES;
+}
+
 vector<string> FileDispatcher::TraverseDirectory(string& const basepath)
 {
 	vector<string> files_and_directories;

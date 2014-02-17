@@ -1,7 +1,9 @@
 #ifndef HUFFMANBINARYHEAP_H
 #define HUFFMANBINARYHEAP_H
 #include "HuffmanNode.h"
-
+/**
+* 	Implementation of basic binary heap
+*/
 class HuffmanBinaryHeap
 {
 private:

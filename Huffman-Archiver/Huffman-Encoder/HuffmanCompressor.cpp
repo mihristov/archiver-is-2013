@@ -33,6 +33,10 @@ void HuffmanCompressor::CompressFile()
 {
 	// TODO: Refactor
 	std::map<char, unsigned int> frequencies = GetByteFrequencies();
+	if (frequencies.size() == 0)
+	{
+		output_->WriteUnsignedInt32(0);
+	}
 	HuffmanEncoder* huffmanEncoder = new HuffmanEncoder(frequencies);
 	huffmanEncoder->BuildTree();
 	HuffmanNode* huffmanTree = huffmanEncoder->GetTree();

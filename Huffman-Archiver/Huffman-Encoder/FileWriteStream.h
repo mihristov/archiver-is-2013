@@ -9,7 +9,10 @@
 
 using std::string;
 using std::ofstream;
-
+/**
+* 	A concrete WriteStream that writes binary data into a file.
+* 	Writing data to the file is optimized by buffering.
+*/
 class FileWriteStream : public WriteStream {
 public:
 	FileWriteStream(const string& filename);
