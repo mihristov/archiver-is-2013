@@ -36,6 +36,8 @@ void HuffmanCompressor::CompressFile()
 	if (frequencies.size() == 0)
 	{
 		output_->WriteUnsignedInt32(0);
+		output_->Flush();
+		return;
 	}
 	HuffmanEncoder* huffmanEncoder = new HuffmanEncoder(frequencies);
 	huffmanEncoder->BuildTree();
